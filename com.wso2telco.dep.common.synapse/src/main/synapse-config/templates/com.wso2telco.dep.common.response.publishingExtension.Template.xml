@@ -9,6 +9,20 @@
         <property expression="synapse:get-property('SYSTEM_TIME')" name="RESPONSE_TIME" scope="default" type="STRING"/>
         <script language="js"><![CDATA[var diff = mc.getProperty('RESPONSE_TIME') - mc.getProperty('REQUEST_TIME');
         		mc.setProperty('SERVICE_TIME', diff);]]></script>
+        <dblookup>
+            <connection>
+                <pool>
+                    <dsName>jdbc/WSO2AM_DB</dsName>
+                </pool>
+            </connection>
+            <statement>
+                <sql><![CDATA[select API_ID FROM AM_API where API_PROVIDER = ? AND API_NAME = ? AND API_VERSION = ?]]></sql>
+                <parameter expression="$ctx:API_PUBLISHER" type="VARCHAR"/>
+                <parameter expression="$ctx:API_NAME" type="VARCHAR"/>
+                <parameter expression="$ctx:API_VERSION" type="VARCHAR"/>
+                <result column="API_ID" name="API_ID"/>
+            </statement>
+        </dblookup>
         <publishEvent>
             <eventSink>das_event_sink</eventSink>
             <streamName>org.wso2telco.analytics.hub.stream.responseStatistics</streamName>

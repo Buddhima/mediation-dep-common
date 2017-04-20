@@ -6,6 +6,20 @@
         <log level="custom">
             <property name="status" value="publishing request data"/>
         </log>
+        <dblookup>
+            <connection>
+                <pool>
+                    <dsName>jdbc/WSO2AM_DB</dsName>
+                </pool>
+            </connection>
+            <statement>
+                <sql><![CDATA[select API_ID FROM AM_API where API_PROVIDER = ? AND API_NAME = ? AND API_VERSION = ?]]></sql>
+                <parameter expression="$ctx:API_PUBLISHER" type="VARCHAR"/>
+                <parameter expression="$ctx:API_NAME" type="VARCHAR"/>
+                <parameter expression="$ctx:API_VERSION" type="VARCHAR"/>
+                <result column="API_ID" name="API_ID"/>
+            </statement>
+        </dblookup>
         <property expression="synapse:get-property('SYSTEM_TIME')" name="REQUEST_TIME" scope="default" type="STRING"/>
         <publishEvent>
             <eventSink>das_event_sink</eventSink>
