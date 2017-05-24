@@ -32,6 +32,7 @@
     <apache.geronimo.specs.wso2.version>1.0.1.wso2v2</apache.geronimo.specs.wso2.version>
     <apache.neethi.wso2.version>2.0.4.wso2v5</apache.neethi.wso2.version>
     <apache.axis2.wso2.version>1.6.1.wso2v16</apache.axis2.wso2.version>
+    <com.jayway.jsonpath.version>2.1.0</com.jayway.jsonpath.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -120,6 +121,12 @@
         <groupId>org.apache.axis2.wso2</groupId>
         <artifactId>axis2</artifactId>
         <version>${apache.axis2.wso2.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.jayway.jsonpath</groupId>
+        <artifactId>json-path</artifactId>
+        <version>${com.jayway.jsonpath.version}</version>
+        <scope>provided</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
