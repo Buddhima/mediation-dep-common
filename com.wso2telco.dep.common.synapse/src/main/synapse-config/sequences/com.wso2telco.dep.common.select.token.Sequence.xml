@@ -31,6 +31,12 @@
   <!-- set original request body -->
   <script language="js"><![CDATA[var payload = mc.getProperty("INCOMING_REQUEST_BODY");
     mc.setPayloadJSON(payload);]]></script>
+  <call-template target="com.wso2telco.dep.common.jsonEnrich.Template">
+    <with-param name="sourceProperty" value="INCOMING_REQUEST_BODY"/>
+    <with-param name="sourceType" value="property"/>
+    <with-param name="sourceClone" value="false"/>
+    <with-param name="targetType" value="payload"/>
+  </call-template>
   <!-- set rest url postfix -->
   <property xmlns:ns="http://org.apache.synapse/xsd" name="REST_URL_POSTFIX" 
     expression="get-property('INCOMING_RESOURCE')" scope="axis2" type="STRING"/>   
