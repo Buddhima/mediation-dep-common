@@ -25,6 +25,7 @@
     <com.wso2telco.dep.common.template_._com.wso2telco.dep.common.requestIdentifier.generator.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._com.wso2telco.dep.common.requestIdentifier.generator.Template>
     <com.wso2telco.dep.common.sequence_._com.wso2telco.dep.common.operator.endpoint.retriever.Sequence>capp/EnterpriseServiceBus</com.wso2telco.dep.common.sequence_._com.wso2telco.dep.common.operator.endpoint.retriever.Sequence>
     <com.wso2telco.dep.common.sequence_._com.wso2telco.dep.common.default.token.refresh.Sequence>capp/EnterpriseServiceBus</com.wso2telco.dep.common.sequence_._com.wso2telco.dep.common.default.token.refresh.Sequence>
+    <com.wso2telco.dep.common.template_._com.wso2telco.dep.common.stringReplace.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._com.wso2telco.dep.common.stringReplace.Template>
     <com.wso2telco.dep.common.template_._mediation.common.doubleGTZeroValidation.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._mediation.common.doubleGTZeroValidation.Template>
     <com.wso2telco.dep.common.template_._com.wso2telco.dep.common.integerValidation.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._com.wso2telco.dep.common.integerValidation.Template>
     <com.wso2telco.dep.common.template_._com.wso2telco.dep.common.loggingExtension.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._com.wso2telco.dep.common.loggingExtension.Template>
@@ -45,9 +46,11 @@
     <com.wso2telco.dep.common.sequence_._com.wso2telco.dep.common.default.token.retriever.Sequence>capp/EnterpriseServiceBus</com.wso2telco.dep.common.sequence_._com.wso2telco.dep.common.default.token.retriever.Sequence>
     <com.wso2telco.dep.common.template_._mediation.common.doubleGEZeroValidation.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._mediation.common.doubleGEZeroValidation.Template>
     <com.wso2telco.dep.common.sequence_._com.wso2telco.dep.common.response.unexpectedError.Sequence>capp/EnterpriseServiceBus</com.wso2telco.dep.common.sequence_._com.wso2telco.dep.common.response.unexpectedError.Sequence>
+    <com.wso2telco.dep.common.template_._com.wso2telco.dep.common.jsonDetach.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._com.wso2telco.dep.common.jsonDetach.Template>
     <com.wso2telco.dep.common.resource_._notificationURL>capp/EnterpriseServiceBus</com.wso2telco.dep.common.resource_._notificationURL>
     <com.wso2telco.dep.common.resource_._mediationConfig_xml>capp/EnterpriseServiceBus</com.wso2telco.dep.common.resource_._mediationConfig_xml>
     <com.wso2telco.dep.common.template_._com.wso2telco.dep.common.channelValidation.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._com.wso2telco.dep.common.channelValidation.Template>
+    <com.wso2telco.dep.common.template_._com.wso2telco.dep.common.jsonEnrich.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._com.wso2telco.dep.common.jsonEnrich.Template>
     <com.wso2telco.dep.common.sequence_._com.wso2telco.dep.common.serviceCode.retriever.Sequence>capp/EnterpriseServiceBus</com.wso2telco.dep.common.sequence_._com.wso2telco.dep.common.serviceCode.retriever.Sequence>
     <com.wso2telco.dep.common.template_._com.wso2telco.dep.common.clientCorrelator.generator.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._com.wso2telco.dep.common.clientCorrelator.generator.Template>
     <com.wso2telco.dep.common.template_._com.wso2telco.dep.common.urlValidation.Template>capp/EnterpriseServiceBus</com.wso2telco.dep.common.template_._com.wso2telco.dep.common.urlValidation.Template>
@@ -275,6 +278,24 @@
     <dependency>
       <groupId>com.wso2telco.dep.common.template</groupId>
       <artifactId>com.wso2telco.dep.common.main.response.datapublisher.Template</artifactId>
+      <version>2.1.0-SNAPSHOT</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.wso2telco.dep.common.template</groupId>
+      <artifactId>com.wso2telco.dep.common.jsonDetach.Template</artifactId>
+      <version>2.1.0-SNAPSHOT</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.wso2telco.dep.common.template</groupId>
+      <artifactId>com.wso2telco.dep.common.jsonEnrich.Template</artifactId>
+      <version>2.1.0-SNAPSHOT</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>com.wso2telco.dep.common.template</groupId>
+      <artifactId>com.wso2telco.dep.common.stringReplace.Template</artifactId>
       <version>2.1.0-SNAPSHOT</version>
       <type>xml</type>
     </dependency>
