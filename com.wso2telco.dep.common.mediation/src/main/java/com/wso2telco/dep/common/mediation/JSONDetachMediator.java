@@ -22,7 +22,7 @@ public class JSONDetachMediator extends AbstractMediator {
         Object object = "";
 
         String jsonPath = (String) synapseContext.getProperty(JSON_DETACH_PATH_EXPRESSION);
-        String type = (String) synapseContext.getProperty(JSON_DETACH_PATH_TYPE);
+        String type = synapseContext.getProperty(JSON_DETACH_PATH_TYPE) != null ? (String) synapseContext.getProperty(JSON_DETACH_PATH_TYPE) : JSON_PATH_TYPE_CUSTOM;
         org.apache.axis2.context.MessageContext context =
                 ((Axis2MessageContext) synapseContext).getAxis2MessageContext();
 

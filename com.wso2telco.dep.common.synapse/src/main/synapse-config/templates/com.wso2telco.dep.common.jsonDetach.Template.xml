@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="com.wso2telco.dep.common.jsonDetach.Template" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="jsonPath"/>
+    <parameter name="type"/>
+    <sequence>
+        <property name="JSON_DETACH_PATH_EXPRESSION" expression="$func:jsonPath" scope="default"/>
+        <property name="JSON_DETACH_PATH_TYPE" expression="$func:type" scope="default"/>
+
+        <class name="com.wso2telco.dep.common.mediation.JSONDetachMediator"/>
+
+        <property name="JSON_DETACH_PATH_EXPRESSION" action="remove" scope="default"/>
+        <property name="JSON_DETACH_PATH_TYPE" action="remove" scope="default"/>
+    </sequence>
+</template>

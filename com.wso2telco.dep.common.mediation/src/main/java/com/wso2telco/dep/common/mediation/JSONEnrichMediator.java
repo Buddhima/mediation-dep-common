@@ -14,20 +14,31 @@ public class JSONEnrichMediator extends AbstractMediator {
     final String JSON_PATH_TYPE_PAYLOAD = "payload";
     final String JSON_PATH_TYPE_PROPERTY = "property";
 
+    final String JSON_ENRICH_SOURCE_JSONPATH = "JSON_ENRICH_SOURCE_JSONPATH";
+    final String JSON_ENRICH_SOURCE_PROPERTY = "JSON_ENRICH_SOURCE_PROPERTY";
+    final String JSON_ENRICH_SOURCE_TYPE = "JSON_ENRICH_SOURCE_TYPE";
+    final String JSON_ENRICH_SOURCE_CLONE = "JSON_ENRICH_SOURCE_CLONE";
+    final String JSON_ENRICH_SOURCE_JSON_NODE = "JSON_ENRICH_SOURCE_JSON_NODE";
+
+    final String JSON_ENRICH_TARGET_JSONPATH = "JSON_ENRICH_TARGET_JSONPATH";
+    final String JSON_ENRICH_TARGET_PROPERTY = "JSON_ENRICH_TARGET_PROPERTY";
+    final String JSON_ENRICH_TARGET_TYPE = "JSON_ENRICH_TARGET_TYPE";
+    final String JSON_ENRICH_TARGET_ACTION = "JSON_ENRICH_TARGET_ACTION";
+
     Configuration configuration = Configuration.defaultConfiguration();
 
     public boolean mediate(MessageContext context) {
 
-        String sourceJsonPath = (String) context.getProperty("JSON_ENRICH_SOURCE_JSONPATH");
-        String sourceProperty = (String) context.getProperty("JSON_ENRICH_SOURCE_PROPERTY");
-        String sourceType = (String) context.getProperty("JSON_ENRICH_SOURCE_TYPE");
-        String sourceClone = (String) context.getProperty("JSON_ENRICH_SOURCE_CLONE");
-        String sourceInlineJSONNode = (String) context.getProperty("JSON_ENRICH_SOURCE_JSON_NODE");
+        String sourceJsonPath = context.getProperty(JSON_ENRICH_SOURCE_JSONPATH) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_JSONPATH) : null;
+        String sourceProperty = context.getProperty(JSON_ENRICH_SOURCE_PROPERTY) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_PROPERTY) : null;
+        String sourceType = context.getProperty(JSON_ENRICH_SOURCE_TYPE) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_TYPE) : JSON_PATH_TYPE_CUSTOM;
+        String sourceClone = context.getProperty(JSON_ENRICH_SOURCE_CLONE) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_CLONE) : null;
+        String sourceInlineJSONNode = context.getProperty(JSON_ENRICH_SOURCE_JSON_NODE) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_JSON_NODE) : null;
 
-        String targetJsonPath = (String) context.getProperty("JSON_ENRICH_TARGET_JSONPATH");
-        String targetProperty = (String) context.getProperty("JSON_ENRICH_TARGET_PROPERTY");
-        String targetType = (String) context.getProperty("JSON_ENRICH_TARGET_TYPE");
-        String targetAction = (String) context.getProperty("JSON_ENRICH_TARGET_ACTION");
+        String targetJsonPath = context.getProperty(JSON_ENRICH_TARGET_JSONPATH) != null ? (String) context.getProperty(JSON_ENRICH_TARGET_JSONPATH) : null;
+        String targetProperty = context.getProperty(JSON_ENRICH_TARGET_PROPERTY) != null ? (String) context.getProperty(JSON_ENRICH_TARGET_PROPERTY) : null;
+        String targetType = context.getProperty(JSON_ENRICH_TARGET_TYPE) != null ? (String) context.getProperty(JSON_ENRICH_TARGET_TYPE) : JSON_PATH_TYPE_CUSTOM;
+        String targetAction = context.getProperty(JSON_ENRICH_TARGET_ACTION) != null ? (String) context.getProperty(JSON_ENRICH_TARGET_ACTION) : null;
 
         try {
             Object sourceNode;

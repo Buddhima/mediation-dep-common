@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="com.wso2telco.dep.common.jsonEnrich.Template" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="sourceJsonPath"/>
+    <parameter name="sourceProperty"/>
+    <parameter name="sourceType"/>
+    <parameter name="sourceClone"/>
+    <parameter name="sourceInlineJSONNode"/>
+    <parameter name="targetJsonPath"/>
+    <parameter name="targetProperty"/>
+    <parameter name="targetType"/>
+    <parameter name="targetAction"/>
+    <sequence>
+        <property name="JSON_ENRICH_SOURCE_JSONPATH" expression="$func:sourceJsonPath" scope="default"/>
+        <property name="JSON_ENRICH_SOURCE_PROPERTY" expression="$func:sourceProperty" scope="default"/>
+        <property name="JSON_ENRICH_SOURCE_TYPE" expression="$func:sourceType" scope="default"/>
+        <property name="JSON_ENRICH_SOURCE_CLONE" expression="$func:sourceClone" scope="default"/>
+        <property name="JSON_ENRICH_SOURCE_JSON_NODE" expression="$func:sourceInlineJSONNode" scope="default"/>
+
+        <property name="JSON_ENRICH_TARGET_JSONPATH" expression="$func:targetJsonPath" scope="default"/>
+        <property name="JSON_ENRICH_TARGET_PROPERTY" expression="$func:targetProperty" scope="default"/>
+        <property name="JSON_ENRICH_TARGET_TYPE" expression="$func:targetType" scope="default"/>
+        <property name="JSON_ENRICH_TARGET_ACTION" expression="$func:targetAction" scope="default"/>
+
+        <class name="com.wso2telco.dep.common.mediation.JSONEnrichMediator"/>
+
+        <property name="JSON_ENRICH_SOURCE_JSONPATH" action="remove" scope="default"/>
+        <property name="JSON_ENRICH_SOURCE_PROPERTY" action="remove" scope="default"/>
+        <property name="JSON_ENRICH_SOURCE_TYPE" action="remove" scope="default"/>
+        <property name="JSON_ENRICH_SOURCE_CLONE" action="remove" scope="default"/>
+        <property name="JSON_ENRICH_SOURCE_JSON_NODE" action="remove" scope="default"/>
+
+        <property name="JSON_ENRICH_TARGET_JSONPATH" action="remove" scope="default"/>
+        <property name="JSON_ENRICH_TARGET_PROPERTY" action="remove" scope="default"/>
+        <property name="JSON_ENRICH_TARGET_TYPE" action="remove" scope="default"/>
+        <property name="JSON_ENRICH_TARGET_ACTION" action="remove" scope="default"/>
+    </sequence>
+</template>
