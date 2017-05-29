@@ -5,6 +5,7 @@
     <parameter name="inputValue"/>
     <parameter name="outputProperty"/>
     <sequence>
+        <!-- syntax: outputProperty = inputValue.replaceFirst(searchValue, newValue) -->
         <property name="STRING_REPLACE_SEARCH_VALUE" expression="$func:searchValue" scope="default"/>
         <property name="STRING_REPLACE_NEW_VALUE" expression="$func:newValue" scope="default"/>
         <property name="STRING_REPLACE_INPUT_VALUE" expression="$func:inputValue" scope="default"/>

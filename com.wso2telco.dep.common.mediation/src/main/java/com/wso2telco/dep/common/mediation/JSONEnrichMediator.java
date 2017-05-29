@@ -32,7 +32,7 @@ public class JSONEnrichMediator extends AbstractMediator {
         String sourceJsonPath = context.getProperty(JSON_ENRICH_SOURCE_JSONPATH) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_JSONPATH) : null;
         String sourceProperty = context.getProperty(JSON_ENRICH_SOURCE_PROPERTY) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_PROPERTY) : null;
         String sourceType = context.getProperty(JSON_ENRICH_SOURCE_TYPE) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_TYPE) : JSON_PATH_TYPE_CUSTOM;
-        String sourceClone = context.getProperty(JSON_ENRICH_SOURCE_CLONE) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_CLONE) : null;
+        String sourceClone = context.getProperty(JSON_ENRICH_SOURCE_CLONE) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_CLONE) : "true";
         String sourceInlineJSONNode = context.getProperty(JSON_ENRICH_SOURCE_JSON_NODE) != null ? (String) context.getProperty(JSON_ENRICH_SOURCE_JSON_NODE) : null;
 
         String targetJsonPath = context.getProperty(JSON_ENRICH_TARGET_JSONPATH) != null ? (String) context.getProperty(JSON_ENRICH_TARGET_JSONPATH) : null;
