@@ -26,35 +26,37 @@ public class MSISDNListFilteringMediator extends AbstractMediator {
         String msisdnListXpath = (String)synCtx.getProperty("MSISDN_LIST_XPATH");
         String operatorCode = (String)synCtx.getProperty("OPERATOR_CODE");
 
-        MessageContext clonedSynCtx;
-        SynapseXPath expression;
+        MessageContext clonedSynCtx = null;
+        SynapseXPath expression = null;
+
+        boolean returnState = true;
 
         try {
             clonedSynCtx = MessageHelper.cloneMessageContext(synCtx);
         } catch (AxisFault axisFault) {
             log.error("Failed cloning synapse-context in MSISDNListFilteringMediator");
-
-            return false;
+            returnState = false;
         }
 
         try {
             expression = new SynapseXPath(msisdnListXpath);
         } catch (JaxenException e) {
             log.error("Failed to set SynapseXPath in MSISDNListFilteringMediator");
-
-            return false;
+            returnState = false;
         }
 
-        Object o = expression.evaluate(synCtx.getEnvelope(), synCtx);
+        if (null != expression && null != clonedSynCtx) {
+            Object o = expression.evaluate(synCtx.getEnvelope(), synCtx);
 
-        // When there's a list of MSISDN elements
-        if (o instanceof List) {
-            List oList = (List) o;
+            // When there's a list of MSISDN elements
+            if (o instanceof List) {
+                List oList = (List) o;
 
-            filterListElements(oList, operatorCode, clonedSynCtx);
+                filterListElements(oList, operatorCode, clonedSynCtx);
+            }
         }
 
-        return true;
+        return returnState;
     }
 
     /**
